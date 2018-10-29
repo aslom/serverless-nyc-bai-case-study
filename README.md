@@ -70,34 +70,41 @@ To use your own Elasticsearch update  <a href="elastic.json">JSON with Elastic i
 *Your first goal is to create a simple hello world action.  This action will return the string 'Hello World' when it is in invoked.*
 
 1. Create a folder for your action to live in: `mkdir myFolder && cd myFolder`
+
 2. Create a file called helloworld.js: `touch helloworld.js`
+
 3. Use your favorite editor to paste the following code into helloworld.js:
 
-	```
+```javascript
 	function main(params) {  
 		if (params.name) {    
 			return { greeting: `Hello ${params.name}` };  
 		}  
 			return { greeting: 'Hello stranger!' };
 		}
-	```
+```
+
 4. This code will return "Hello stranger" if no name parameter is given, otherwise it will say hello to the supplied name. Let's create a new action using this file: `ibmcloud fn action create helloWorld helloworld.js`
+
 5. Let's invoke the action hosted on IBM Cloud Functions, using -r to wait for a result: `ibmcloud fn action invoke helloWorld -r`
+
 6. You should see a response like:
 
-	```
+```
 	{
 	    "greeting": "Hello stranger!"
 	}
-	```
+```
+
 7. Let's invoke the action with a parameter of your name: `ibmcloud fn action invoke helloWorld -p name Belinda -r`
+
 8. You should see a response like:
 
-	```
+```
 	{
 	    "greeting": "Hello Belinda"
 	}
-	```
+```
 
 
 
