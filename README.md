@@ -43,8 +43,9 @@ To use your own Elasticsearch update  <a href="elastic.json">JSON with Elastic i
 ## Sign up for IBM Cloud Account
 *IBM Cloud Functions is based on the Apache OpenWhisk project.  We'll be using IBM Cloud Functions for today's lab, but the concepts could apply to any managed Serverless offering.*
 
-1. [Sign up for an IBM Cloud Account](https://ibm.biz/BdYYJG) [https://ibm.biz/BdYYJG]
-2. This link may redirect to IBM Coders - you don't need to accept the terms or join IBM Coders.  At that point, you can just go directly to [https://bluemix.net](https://bluemix.net) & sign in to confirm your IBM Cloud account was created.
+1. [Sign up for an IBM Cloud Account](https://ibm.biz/BdY3BT) [https://ibm.biz/BdY3BT]
+2. This should redirect you to IBM Cloud, but if not you can go directly there at [https://bluemix.net](https://bluemix.net)
+3. Sign in to confirm your account was created.
 
 ## Install IBM Cloud CLI & IBM Cloud Functions Plugin
 *In this section, you will install the IBM Cloud CLI and the IBM Cloud Functions Plugin to the CLI, as well as do some account set up and configuration. This will enable you to interact with IBM Cloud Functions from a command line interface.*
