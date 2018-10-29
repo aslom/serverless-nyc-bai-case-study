@@ -30,7 +30,7 @@ Feel free to reach out with any questions!
 
 ## Setup required
 
-Makse sure <a href="https://docs.docker.com/install/#supported-platforms">Docker is installed</a> and you have IBM Cloud Account and cloud functions CLI installed and working.
+Make sure <a href="https://docs.docker.com/install/#supported-platforms">Docker is installed</a> and you have IBM Cloud Account and cloud functions CLI installed and working.
 
 ## Optional setup
 
