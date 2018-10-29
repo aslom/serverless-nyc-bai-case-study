@@ -1,0 +1,10 @@
+certifi
+codecov
+docopt==0.6.2
+elasticsearch>=6.0.0,<7.0.0
+flake8>=3.5.0
+flake8-quotes>=0.11.0
+ibm-cos-sdk==2.0.1
+kafka-python==1.4.3
+python-dateutil
+watchdog
