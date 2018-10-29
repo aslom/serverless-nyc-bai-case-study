@@ -1,4 +1,4 @@
-#  BAI Case Study for Serverless NYC
+#  BAI Case Study for Tutorial IBM Cloud Functions & Apache OpenWhisk lab at Serverless Days NYC 2018
 
 
 ## Context
@@ -24,18 +24,21 @@ We simplify several aspects of BAI:
 * analytics is simplified to maintain task summary as a JSON object in Elasticsearch
 * dashboards are custom made for this case study
 
-## Setup - requirements
-
-Makse sure <a href="https://docs.docker.com/install/#supported-platforms">Docker is installed</a> and you have IBM Cloud Account and cloud functions CLI installed and working.
-
-Update <a href="kafka.json">JSON with Kafka configuration</a> or use one provided (should be valid during lab).
-
-Update <a href="elastic.json">JSON with Elastic installation</a> or use one provided (should be valid during lab).
-
-Below are the instructions for the IBM Cloud Functions & Apache OpenWhisk lab at Serverless Days NYC 2018.
+## Feedback
 
 Feel free to reach out with any questions!
 
+## Setup required
+
+Makse sure <a href="https://docs.docker.com/install/#supported-platforms">Docker is installed</a> and you have IBM Cloud Account and cloud functions CLI installed and working.
+
+## Optional setup
+
+Not required but you could use your own Kafka or Elasticsearch.
+
+To use your own Kafka update <a href="kafka.json">JSON with Kafka configuration</a>.
+
+To use your own Elasticsearch update  <a href="elastic.json">JSON with Elastic installation</a> or use one provided (should be valid during lab).
 
 ### Sign up for IBM Cloud Account
 *IBM Cloud Functions is based on the Apache OpenWhisk project.  We'll be using IBM Cloud Functions for today's lab, but the concepts could apply to any managed Serverless offering.*
@@ -98,7 +101,8 @@ Feel free to reach out with any questions!
 
 
 
-## Create event source
+
+## BAI Create event source
 
 ```
 ibmcloud fn package bind /whisk.system/messaging baiEventStream -p kafka_brokers_sasl "[\"kafka03-prod02.messagehub.services.us-south.bluemix.net:9093\"]" -p user HFrcTJyrKd0GRNkK -p password 5NJkATVxktFCnN79Gxa1flhe9GDWJE8s -p kafka_admin_url https://kafka-admin-prod02.messagehub.services.us-south.bluemix.net:443
@@ -165,28 +169,6 @@ expected output:
 ok: invoked /whisk.system/messaging/messageHubProduce with id 95036269326e4a26836269326e7a2667
 ```
 
-
-TODO did not work ...
-
-```
-    "logs": [
-        "2018-10-29T02:52:32.097526275Z stdout: INFO     [02:52:32] <BrokerConnection node_id=7 host=kafka08-prod02.messagehub.services.us-south.bluemix.net:9093 <connecting> [IPv4 ('169.60.0.123', 9093)]>: connecting to kafka08-prod02.messagehub.services.us-south.bluemix.net:9093 [('169.60.0.123', 9093) IPv4]",
-        "2018-10-29T02:52:32.116779151Z stdout: INFO     [02:52:32] Using kafka-python 1.4.3",
-        "2018-10-29T02:52:32.11679968Z  stdout: INFO     [02:52:32] Validating parameters",
-        "2018-10-29T02:52:32.116805046Z stdout: INFO     [02:52:32] Starting attempt 1",
-        "2018-10-29T02:52:32.116809771Z stdout: INFO     [02:52:32] Getting producer",
-        "2018-10-29T02:52:32.116821274Z stdout: INFO     [02:52:32] Reusing existing producer",
-        "2018-10-29T02:52:32.116825845Z stdout: INFO     [02:52:32] Finding topic mytopic",
-        "2018-10-29T02:52:32.116829777Z stdout: INFO     [02:52:32] Found topic mytopic with partition(s) {0}",
-        "2018-10-29T02:52:32.116833852Z stdout: INFO     [02:52:32] Producing message",
-        "2018-10-29T02:52:32.116837756Z stdout: WARNING  [02:52:32] encoding without a string argument",
-        "2018-10-29T02:52:32.117036478Z stdout: INFO     [02:52:32] <BrokerConnection node_id=7 host=kafka08-prod02.messagehub.services.us-south.bluemix.net:9093 <authenticating> [IPv4 ('169.60.0.123', 9093)]>: Authenticated as HFrcTJyrKd0GRNkK via PLAIN",
-        "2018-10-29T02:52:32.117293828Z stdout: INFO     [02:52:32] <BrokerConnection node_id=7 host=kafka08-prod02.messagehub.services.us-south.bluemix.net:9093 <authenticating> [IPv4 ('169.60.0.123', 9093)]>: Connection complete.",
-        "2018-10-29T02:52:32.118021906Z stderr: Traceback (most recent call last):",
-        "2018-10-29T02:52:32.11804087Z  stderr: File \"__main__.py\", line 95, in main",
-        "2018-10-29T02:52:32.11804627Z  stderr: TypeError: encoding without a string argument"
-    ],
-  ```
 
 ## Process event into summary JSON
 
