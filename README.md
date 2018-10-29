@@ -40,13 +40,13 @@ To use your own Kafka update <a href="kafka.json">JSON with Kafka configuration<
 
 To use your own Elasticsearch update  <a href="elastic.json">JSON with Elastic installation</a> or use one provided (should be valid during lab).
 
-### Sign up for IBM Cloud Account
+## Sign up for IBM Cloud Account
 *IBM Cloud Functions is based on the Apache OpenWhisk project.  We'll be using IBM Cloud Functions for today's lab, but the concepts could apply to any managed Serverless offering.*
 
 1. [Sign up for an IBM Cloud Account](https://ibm.biz/BdYYJG) [https://ibm.biz/BdYYJG]
 2. This link may redirect to IBM Coders - you don't need to accept the terms or join IBM Coders.  At that point, you can just go directly to [https://bluemix.net](https://bluemix.net) & sign in to confirm your IBM Cloud account was created.
 
-### Install IBM Cloud CLI & IBM Cloud Functions Plugin
+## Install IBM Cloud CLI & IBM Cloud Functions Plugin
 *In this section, you will install the IBM Cloud CLI and the IBM Cloud Functions Plugin to the CLI, as well as do some account set up and configuration. This will enable you to interact with IBM Cloud Functions from a command line interface.*
 
 1. Install the IBM Cloud CLI 
@@ -66,7 +66,7 @@ To use your own Elasticsearch update  <a href="elastic.json">JSON with Elastic i
     * Confirm cloud-functions plugin is installed: `ibmcloud fn` should return some help information.
         * If the plugin is not installed, install it: `ibmcloud plugin install cloud-functions`
 
-### Create your first action (Hello World) using the CLI!
+## Create your first action (Hello World) using the CLI!
 *Your first goal is to create a simple hello world action.  This action will return the string 'Hello World' when it is in invoked.*
 
 1. Create a folder for your action to live in: `mkdir myFolder && cd myFolder`
