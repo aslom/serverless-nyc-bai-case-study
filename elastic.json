@@ -1,0 +1,18 @@
+{
+  "db_type": "elastic_search",
+  "maps": [],
+  "uri_health": "curl -u admin:IDGYVALTPVDZZVCZ 'https://portal-ssl113-38.bmix-dal-yp-cc659f75-4d33-404d-8934-644c6858f0ca.250607799.composedb.com:58570/_cluster/health?pretty'",
+  "instance_administration_api": {
+    "instance_id": "cc659f75-4d33-404d-8934-644c6858f0ca",
+    "root": "https://composebroker-dashboard-public.mybluemix.net/api",
+    "deployment_id": "5ba9886b8807bd0018547b1d"
+  },
+  "name": "bmix-dal-yp-cc659f75-4d33-404d-8934-644c6858f0ca",
+  "uri_direct_1": "https://admin:IDGYVALTPVDZZVCZ@portal-ssl115-37.bmix-dal-yp-cc659f75-4d33-404d-8934-644c6858f0ca.250607799.composedb.com:58570/",
+  "deployment_id": "5ba9886b8807bd0018547b1d",
+  "uri_health_1": "curl -u admin:IDGYVALTPVDZZVCZ 'https://portal-ssl115-37.bmix-dal-yp-cc659f75-4d33-404d-8934-644c6858f0ca.250607799.composedb.com:58570/_cluster/health?pretty'",
+  "uri": "https://admin:IDGYVALTPVDZZVCZ@portal-ssl113-38.bmix-dal-yp-cc659f75-4d33-404d-8934-644c6858f0ca.250607799.composedb.com:58570/",
+  "misc": {
+    "direct_kibana": []
+  }
+}
