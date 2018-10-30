@@ -30,12 +30,6 @@ Share Feedback  - we would apprecate if you take one minute to fill very short g
 Adn feel free to reach out with any questions!
 Twitter @aslom https://twitter.com/aslom
 
-## Setup required
-
-Make sure <a href="https://docs.docker.com/install/#supported-platforms">Docker</a>.
- and <a href="https://realpython.com/installing-python/">python3</a> are installed in your laptop. 
-
-Continue to find below instructions to setup IBM Cloud Account and install cloud functions CLI.
 
 ## Sign up for IBM Cloud Account
 *IBM Cloud Functions is based on the Apache OpenWhisk project.  We'll be using IBM Cloud Functions for today's lab, but the concepts could apply to any managed Serverless offering.*
