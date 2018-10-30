@@ -39,9 +39,9 @@
 
 - VERY IMPORTANT: to avoid overriding each other's state in Elasticsearch set your own unique analytics ID:
   ```
-  YOUR_ID=mynamehere
+  export YOUR_ID=mynamehere
   ```
-- Create the serverless action using the code at task_summary.py. You could look at the code, but at a high level, this action calculates the duration of a particular case management task.
+- Create the serverless action using the code at task_summary.py. You could look at the code, but at a high level, this action calculates the duration of a particular case management task. You will notice that the action being created is a docker action - this is so that we can include our required libraries.
   ```
   ibmcloud fn action create task_summary task_summary.py --param analytics-id $YOUR_ID --param ES_URL https://admin:QZSFKVNUNTMWPHMY@portal-ssl65-41.bmix-dal-yp-c401ad96-667e-4128-af0e-cb3d54fd1cf9.250607799.composedb.com:62863/ --docker aslom/python3action-bai
   ```
@@ -52,7 +52,7 @@
   ok: created action task_summary
   ```
 
-- You will not edit the code for this lab, but if you wanted to make edits in the future, you would use the `update` command instead of `create`.
+- You will not edit the python code during this lab, but if you wanted to make edits in the future, you would use the `update` command instead of `create`.
 
   ```
   ibmcloud fn action update task_summary task_summary.py --param analytics-id $YOUR_ID --param ES_URL https://admin:QZSFKVNUNTMWPHMY@portal-ssl65-41.bmix-dal-yp-c401ad96-667e-4128-af0e-cb3d54fd1cf9.250607799.composedb.com:62863/ --docker aslom/python3action-bai
@@ -92,7 +92,7 @@ Make sure python3 is installed: https://realpython.com/installing-python/
 python3 -m pip install -r requirements.txt --user
 ```
 
-Then you can run simulated serverless invocaiton:
+Then you can run simulated serverless invocation:
 
 ```
 ./simulate_invoke.py
@@ -102,6 +102,7 @@ Then you can run simulated serverless invocaiton:
 
 ## Building Docker base image with libraries
 
+Ensure docker is installed. If you want to build the docker base image with libraries, you can use the following commands:
 ```
 docker build -t docker.io/aslom/python3action-bai:latest .
 docker push docker.io/aslom/python3action-bai
