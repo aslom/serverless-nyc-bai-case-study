@@ -25,8 +25,9 @@ We simplify several aspects of BAI:
 
 ## Feedback
 
-Feel free to reach out with any questions!
+Share Feedback  - we would apprecate if you take one minute to fill very short google form: https://ibm.biz/BdY3B8
 
+Adn feel free to reach out with any questions!
 Twitter @aslom https://twitter.com/aslom
 
 ## Setup required
@@ -35,14 +36,6 @@ Make sure <a href="https://docs.docker.com/install/#supported-platforms">Docker<
  and <a href="https://realpython.com/installing-python/">python3</a> are installed in your laptop. 
 
 Continue to find below instructions to setup IBM Cloud Account and install cloud functions CLI.
-
-## Optional setup
-
-Not required but you could use your own Kafka or Elasticsearch.
-
-To use your own Kafka update <a href="kafka.json">JSON with Kafka configuration</a>.
-
-To use your own Elasticsearch update  <a href="elastic.json">JSON with Elastic installation</a> or use one provided (should be valid during lab).
 
 ## Sign up for IBM Cloud Account
 *IBM Cloud Functions is based on the Apache OpenWhisk project.  We'll be using IBM Cloud Functions for today's lab, but the concepts could apply to any managed Serverless offering.*
@@ -107,6 +100,13 @@ To use your own Elasticsearch update  <a href="elastic.json">JSON with Elastic i
 
 ## Create BAI analytics action
 
-Now that you have basic hello action working let move to BAI Case study 
-and [modify event processing](analytics/README.md).
+Now that you have basic hello action working you are ready to go to main part of our tutorial: let move to [BAI Case study](analytics/README.md).
 
+
+## Optional setup
+
+Not required but you could use your own Kafka or Elasticsearch.
+
+To use your own Kafka update <a href="kafka.json">JSON with Kafka configuration</a>.
+
+To use your own Elasticsearch update  <a href="elastic.json">JSON with Elastic installation</a> or use one provided (should be valid during lab).

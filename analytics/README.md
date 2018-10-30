@@ -1,19 +1,6 @@
 # How to build and run BAI analytics action
 
 
-## Building and testing action code locally
-
-Make sure python3 is installed: https://realpython.com/installing-python/
-
-```
-python3 -m pip install -r requirements.txt --user
-```
-
-Then you can run simulated serverless invocaiton:
-
-```
-./simulate_invoke.py
-```
 
 
 ## Process events into summary JSON
@@ -93,8 +80,25 @@ Your trigger should triggered and your action invoked when events are received.
 ibmcloud fn activation poll
 ```
 
+# Optional (if time allows)
 
-# Building Docker base image with libraries
+## Building and testing action code locally
+
+Make sure python3 is installed: https://realpython.com/installing-python/
+
+```
+python3 -m pip install -r requirements.txt --user
+```
+
+Then you can run simulated serverless invocaiton:
+
+```
+./simulate_invoke.py
+```
+
+
+
+## Building Docker base image with libraries
 
 ```
 docker build -t docker.io/aslom/python3action-bai:latest .
