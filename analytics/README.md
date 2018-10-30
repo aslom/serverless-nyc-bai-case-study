@@ -33,6 +33,7 @@
 ## Create the Kafka action to process events
 
 - You will be creating a new action from the code provided in `https://github.com/aslom/serverless-nyc-bai-case-study/blob/master/analytics/task_summary.py` Clone the repo, and cd into the folder containing this file:
+  
   `git clone git@github.com:aslom/serverless-nyc-bai-case-study.git && cd serverless-nyc-bai-case-study/analytics`
   
     - if you are unable to clone, you could create a file named task_summary.py & paste in the contents from the [file on github](https://raw.githubusercontent.com/aslom/serverless-nyc-bai-case-study/master/analytics/task_summary.py).
