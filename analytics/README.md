@@ -3,7 +3,7 @@
 
 ## Building and testing action code locally
 
-Mae sure python3 is installed: https://realpython.com/installing-python/
+Make sure python3 is installed: https://realpython.com/installing-python/
 
 ```
 python3 -m pip install -r requirements.txt --user

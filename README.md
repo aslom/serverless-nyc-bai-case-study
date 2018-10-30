@@ -7,9 +7,6 @@ This case study is specifically prepared for
 <a href="https://www.serverlessnyc.com/ibm">IBM tutorial</a> in
 <a href="https://www.serverlessnyc.com/">Serverless NYC, A serverless reality check - October 30 2018, New York</a>
 
-For introduction see <a href="https://github.com/beemarie/serverless-nyc-lab">instructions for the IBM Cloud Functions & Apache OpenWhisk lab at Serverless Days NYC 2018</a>
-
-
 What is BAI?
 
 IBM® Business Automation Insights (BAI) is a platform-level component that provides visualization insights to business owners and that feeds a data lake to infuse artificial intelligence into IBM Digital Business Automation.
@@ -20,17 +17,23 @@ IBM® Business Automation Insights (BAI) is a platform-level component that prov
 This case study is designed to show how to use Apache OpenWhisk with IBM Cloud Functions to add custom behavior to BAI.
 
 We simplify several aspects of BAI:
-* emitter is not connected to real system but is hardcoded to send task events
-* analytics is simplified to maintain task summary as a JSON object in Elasticsearch
-* dashboards are custom made for this case study
+* emitter is not connected to real system but is hardcoded to send sample task events
+* analytics is simplified and modified to group task summaries by actions 
+* summaries are stored as JSON objects in Elasticsearch
+* dashboards are simplified version of BAI dashboards
 
 ## Feedback
 
 Feel free to reach out with any questions!
 
+Twitter @aslom https://twitter.com/aslom
+
 ## Setup required
 
-Make sure <a href="https://docs.docker.com/install/#supported-platforms">Docker is installed</a> and you have IBM Cloud Account and cloud functions CLI installed and working.
+Make sure <a href="https://docs.docker.com/install/#supported-platforms">Docker</a>.
+ and <a href="https://realpython.com/installing-python/">python3</a> are installed in your laptop. 
+
+Continue to find below instructions to setup IBM Cloud Account and install cloud functions CLI.
 
 ## Optional setup
 
