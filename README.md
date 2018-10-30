@@ -94,7 +94,7 @@ Twitter @aslom https://twitter.com/aslom
 
 ## Create BAI analytics action
 
-Now that you have basic hello action working you are ready to go to main part of our tutorial: let move to [BAI Case study](analytics/README.md).
+Now that you have a basic hello action working, you are ready to go to the main part of our tutorial: let's move to [BAI Case study](analytics/README.md).
 
 
 ## Optional setup
