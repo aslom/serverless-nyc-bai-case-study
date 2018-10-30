@@ -46,7 +46,8 @@ ok: created trigger baiEventStreamTestTrigger
 
 ## Create Kafka action to process events
 
-Set your won unique analytics ID:
+VERY IMPORTANT: to avoid overrifing each other state in Elasticsearch
+set your won unique analytics ID:
 
 ```
 YOUR_ID=flux8
