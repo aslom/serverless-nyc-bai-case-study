@@ -1,9 +1,4 @@
-# How to build and run BAI analytics action
-
-
-
-
-## Process events into summary JSON
+# BAI Analytics: Process events into summary JSON
 
 ## BAI Create event source
 
