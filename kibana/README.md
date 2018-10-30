@@ -2,7 +2,15 @@
 
 ## Configure Kibana and see summary JSON in dashboard
 
-TODO
+```
+./run_kibana.sh
+```
+
+And open
+
+http://localhost:5617/app/kibana#/dashboards
+
+## Without Kibana
 
 Check summary is saved:
 
