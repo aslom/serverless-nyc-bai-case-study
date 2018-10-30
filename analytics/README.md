@@ -9,8 +9,14 @@ Make sure python3 is installed: https://realpython.com/installing-python/
 python3 -m pip install -r requirements.txt --user
 ```
 
+Then you can run simulated serverless invocaiton:
 
-## Process event into summary JSON
+```
+./simulate_invoke.py
+```
+
+
+## Process events into summary JSON
 
 ## BAI Create event source
 
@@ -38,10 +44,11 @@ expected output:
 ok: created trigger baiEventStreamTestTrigger
 ```
 
-## Create Kafka actin to print message
+## Create Kafka action to process events
 
 ```
-ibmcloud fn action create task_summary task_summary.py --param ES_URL https://admin:IDGYVALTPVDZZVCZ@portal-ssl113-38.bmix-dal-yp-cc659f75-4d33-404d-8934-644c6858f0ca.250607799.composedb.com:58570/ --docker aslom/python3action-bai
+YOUR_ID=flux5
+ibmcloud fn action create task_summary task_summary.py --param analytics-id $YOUR_ID --param ES_URL https://admin:QZSFKVNUNTMWPHMY@portal-ssl65-41.bmix-dal-yp-c401ad96-667e-4128-af0e-cb3d54fd1cf9.250607799.composedb.com:62863/ --docker aslom/python3action-bai
 ```
 
 expected output
@@ -49,6 +56,13 @@ expected output
 ```
 ok: created action task_summary
 ```
+
+After editing of python code use update:
+
+```
+ibmcloud fn action update task_summary task_summary.py --param analytics-id $YOUR_ID --param ES_URL https://admin:QZSFKVNUNTMWPHMY@portal-ssl65-41.bmix-dal-yp-c401ad96-667e-4128-af0e-cb3d54fd1cf9.250607799.composedb.com:62863/ --docker aslom/python3action-bai
+```
+
 
 ## Create rule to connect trigger to action
 
@@ -65,6 +79,16 @@ ok: created rule taskSummaryRule
 
 ## Check output
 
+Your trigger should triggered and your action invoked when events are received.
+
 ```
 ibmcloud fn activation poll
+```
+
+
+# Building Docker base image with libraries
+
+```
+docker build -t docker.io/aslom/python3action-bai:latest .
+docker push docker.io/aslom/python3action-bai
 ```

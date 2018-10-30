@@ -1,5 +1,6 @@
 #  BAI Case Study for Tutorial IBM Cloud Functions & Apache OpenWhisk lab at Serverless Days NYC 2018
 
+<a href="https://docs.google.com/presentation/d/1zer_AC0ZgP2cJekqyLdnYKd60cQq5mVMW6oTXP_8meU/edit?usp=sharing">Overview Slides</a>
 
 ## Context
 
