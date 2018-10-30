@@ -46,7 +46,7 @@ ok: created trigger baiEventStreamTestTrigger
 
 ## Create Kafka action to process events
 
-VERY IMPORTANT: to avoid overrifing each other state in Elasticsearch
+VERY IMPORTANT: to avoid overriding each other state in Elasticsearch
 set your won unique analytics ID:
 
 ```
