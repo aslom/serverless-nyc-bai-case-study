@@ -88,6 +88,7 @@ def make_error(msg):
 
 def main(dict):
     print('dict=', dict)
+    analytics_id = None
     if 'analytics-id' not in dict:
         return make_error('processor missing analytics-id')
     else:
@@ -100,7 +101,7 @@ def main(dict):
         esUrl = os.getenv('ES_URL', 'http://localhost:9200')
         esUser = os.getenv('ES_USER')
         esPass = os.getenv('ES_PASS')
-    print('esUrl=', esUrl, 'esUser=', esUser, 'esPass=', esPass)
+    print('analytics_id=', analytics_id, 'esUrl=', esUrl, 'esUser=', esUser, 'esPass=', esPass)
     http_auth = None
     if esUser is not None:
         http_auth = (esUser, esPass)
@@ -147,6 +148,7 @@ def main(dict):
         if objectType.endswith(EVENT_SUFFIX):
             objectType = objectType[:len(EVENT_SUFFIX)-1]
         print('processor objectType1=', objectType)
+        objectType = analytics_id + '-' + objectType
         summary = create_or_load_summary(objectType, objectId)
         if summary is None:
             return

@@ -46,8 +46,15 @@ ok: created trigger baiEventStreamTestTrigger
 
 ## Create Kafka action to process events
 
+Set your won unique analytics ID:
+
 ```
 YOUR_ID=flux5
+```
+
+THen create action
+
+```
 ibmcloud fn action create task_summary task_summary.py --param analytics-id $YOUR_ID --param ES_URL https://admin:QZSFKVNUNTMWPHMY@portal-ssl65-41.bmix-dal-yp-c401ad96-667e-4128-af0e-cb3d54fd1cf9.250607799.composedb.com:62863/ --docker aslom/python3action-bai
 ```
 

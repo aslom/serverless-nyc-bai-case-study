@@ -1,0 +1,47 @@
+{
+  "business-events-envelope-version": "1.0.1",
+  "business-events-extension-version": "icm/1.0.0",
+  "category": "icm:TaskEvent",
+  "type": "icm:TaskEvent:Ready",
+  "timestamp": "2018-08-17T07:04:01.675Z",
+  "id": "{C0B24665-0200-C4B8-8768-591884F5BAD7}",
+  "kafka": {
+    "key": "\"TaskEvent_C0B24665-0000-C41D-905D-91B662F2CBF7\""
+  },
+  "user": {
+    "id": "intgpeadmin"
+  },
+  "source": {
+    "id": "{66C798B2-7D34-4045-8CFA-780B18C71782}",
+    "type": "task",
+    "name": "RadioTask",
+    "icm": {
+      "audit-sequence": 12219.0,
+      "state": "Ready",
+      "case-folder-id": "{C0B24665-0000-C41D-905D-91B662F2CBF7}",
+      "case-id": "{C0B24665-0000-C41D-905D-91B662F2CBF7}",
+      "source-class-id": "{66C798B2-7D34-4045-8CFA-780B18C71782}",
+      "source-class-display-name": "RadioTask",
+      "version": "1534489444675",
+      "is-task-container": false,
+      "solution-name": "Validator",
+      "case-type-id": "{EE103375-9756-4D0D-891E-E2A3DD4157FD}",
+      "case-type-name": "VLD_ValidatorCase",
+      "case-instance-name": "000000100001",
+      "case-instance-id": "{C0B24665-0000-C41D-905D-91B662F2CBF7}"
+    },
+    "instance": {
+      "id": "{C0B24665-0100-C335-A06E-0432C264E7B7}",
+      "name": "RadioTask"
+    },
+    "parent": {
+      "type": "case",
+      "id": "{EE103375-9756-4D0D-891E-E2A3DD4157FD}",
+      "name": "VLD_ValidatorCase",
+      "instance": {
+        "id": "{C0B24665-0000-C41D-905D-91B662F2CBF7}",
+        "name": "VLD_ValidatorCase_000000100001"
+      }
+    }
+  }
+}
