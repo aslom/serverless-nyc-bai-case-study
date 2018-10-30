@@ -18,10 +18,10 @@ IBM® Business Automation Insights (BAI) is a platform-level component that prov
 This case study is designed to show how to use Apache OpenWhisk with IBM Cloud Functions to add custom behavior to BAI.
 
 We simplify several aspects of BAI:
-* emitter is not connected to real system but is hardcoded to send sample task events
+* emitter is not connected to a real system but is hardcoded to send sample task events
 * analytics is simplified and modified to group task summaries by actions 
 * summaries are stored as JSON objects in Elasticsearch
-* dashboards are simplified version of BAI dashboards
+* dashboards are a simplified version of BAI dashboards
 
 ## Feedback
 
@@ -41,7 +41,7 @@ Continue to find below instructions to setup IBM Cloud Account and install cloud
 *IBM Cloud Functions is based on the Apache OpenWhisk project.  We'll be using IBM Cloud Functions for today's lab, but the concepts could apply to any managed Serverless offering.*
 
 1. [Sign up for an IBM Cloud Account](https://ibm.biz/BdY3BT) [https://ibm.biz/BdY3BT]
-2. This should redirect you to IBM Cloud, but if not you can go directly there at [https://bluemix.net](https://bluemix.net)
+2. This should redirect you to IBM Cloud as a part of the sign up process, but if not you can go directly there at [https://bluemix.net](https://bluemix.net)
 3. Sign in to confirm your account was created.
 
 ## Install IBM Cloud CLI & IBM Cloud Functions Plugin
@@ -59,7 +59,7 @@ Continue to find below instructions to setup IBM Cloud Account and install cloud
     * Select your API: `ibmcloud api https://api.ng.bluemix.net`
     * Login: `ibmcloud login`
     * You should have an org created already. Target your org with the command `ibmcloud target --cf`
-    * You should have a space created as well, called dev.  If you did, then the `ibmcloud target --cf` command would show that this space was targeted, and you can skip the steps for creating a space.
+    * You should have a space that was created automatically for you as well, called dev.  If you did, then the `ibmcloud target --cf` command would show that this space was targeted, and you can skip the steps for creating a space.
       * If you do not have a space; let's create one. In this example, we'll call our space dev, but you can choose anything you want: `ibmcloud cf create-space dev`
       * Ensure your org & space is correctly targeted using `ibmcloud target --cf`
       * Confirm cloud-functions plugin is installed: `ibmcloud fn` should return some help information.
@@ -105,8 +105,8 @@ Now that you have basic hello action working you are ready to go to main part of
 
 ## Optional setup
 
-Not required but you could use your own Kafka or Elasticsearch.
+It is not required for this lab due to time constraints, but in the future you could use your own Kafka or Elasticsearch.
 
-To use your own Kafka update <a href="kafka.json">JSON with Kafka configuration</a>.
+To use your own Kafka, update <a href="kafka.json">JSON with Kafka configuration</a>.
 
-To use your own Elasticsearch update  <a href="elastic.json">JSON with Elastic installation</a> or use one provided (should be valid during lab).
+To use your own Elasticsearch, update  <a href="elastic.json">JSON with Elasticsearch installation</a> or use the one provided (should be valid during lab).
