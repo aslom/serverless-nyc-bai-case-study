@@ -53,11 +53,11 @@ Twitter @aslom https://twitter.com/aslom
     * Select your API: `ibmcloud api https://api.ng.bluemix.net`
     * Login: `ibmcloud login`
     * You should have an org created already. Target your org with the command `ibmcloud target --cf`
-    * You should have a space that was created automatically for you as well, called dev.  If you did, then the `ibmcloud target --cf` command would show that this space was targeted, and you can skip the steps for creating a space.
+    * You should have a space that was created automatically for you as well, called dev.  If it was, then the `ibmcloud target --cf` command would show that this space was targeted, and you can skip the steps for creating a space.
       * If you do not have a space; let's create one. In this example, we'll call our space dev, but you can choose anything you want: `ibmcloud cf create-space dev`
       * Ensure your org & space is correctly targeted using `ibmcloud target --cf`
-      * Confirm cloud-functions plugin is installed: `ibmcloud fn` should return some help information.
-          * If the plugin is not installed, install it: `ibmcloud plugin install cloud-functions`
+    * Confirm cloud-functions plugin is installed: `ibmcloud fn` should return some help information.
+        * If the plugin is not installed, install it: `ibmcloud plugin install cloud-functions`
 
 ## Create your first action (Hello World) using the CLI!
 *Your first goal is to create a simple hello world action.  This action will return the string 'Hello World' when it is in invoked.*
