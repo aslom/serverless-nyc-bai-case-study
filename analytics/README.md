@@ -1,79 +1,86 @@
 # BAI Analytics: Process events into summary JSON
-
-## BAI Create event source
-
-```
-ibmcloud fn package bind /whisk.system/messaging baiEventStream -p kafka_brokers_sasl "[\"kafka03-prod02.messagehub.services.us-south.bluemix.net:9093\"]" -p user HFrcTJyrKd0GRNkK -p password 5NJkATVxktFCnN79Gxa1flhe9GDWJE8s -p kafka_admin_url https://kafka-admin-prod02.messagehub.services.us-south.bluemix.net:443
-```
-
-expected output:
-
-```
-ok: created binding baiEventStream
-```
+*You can imagine that you could do something a little more interesting than hello world.  For this section of the lab, you'll be creating a trigger that will fire whenever a new item is placed on a Kafka topic.  That trigger will be connected to an action (via a rule).  The action will run some code to process the incoming kafka message.*
 
 
-## Create trigger for kafka topic
+## BAI Create the event source
+- Your first step will be to create a kafka event source. For simplicity in this lab, we are using a kafka instance already created by the instructors. Run the following command in your terminal window:
+
+  ```
+  ibmcloud fn package bind /whisk.system/messaging baiEventStream -p kafka_brokers_sasl "[\"kafka03-prod02.messagehub.services.us-south.bluemix.net:9093\"]" -p user HFrcTJyrKd0GRNkK -p password 5NJkATVxktFCnN79Gxa1flhe9GDWJE8s -p kafka_admin_url https://kafka-admin-prod02.messagehub.services.us-south.bluemix.net:443
+  ```
+
+  expected output:
+
+  ```
+  ok: created binding baiEventStream
+  ```
 
 
-```
-ibmcloud fn trigger create baiEventStreamTestTrigger -f baiEventStream/messageHubFeed -p topic mytopic -p isJSONData true
-```
+## Create the trigger for a kafka topic
 
-expected output:
+- Create a trigger to listen for messages coming in on the kafka topic
 
-```
-ok: created trigger baiEventStreamTestTrigger
-```
+  ```
+  ibmcloud fn trigger create baiEventStreamTestTrigger -f baiEventStream/messageHubFeed -p topic mytopic -p isJSONData true
+  ```
 
-## Create Kafka action to process events
+  expected output:
 
-VERY IMPORTANT: to avoid overriding each other state in Elasticsearch
-set your won unique analytics ID:
+  ```
+  ok: created trigger baiEventStreamTestTrigger
+  ```
 
-```
-YOUR_ID=flux8
-```
+## Create the Kafka action to process events
 
-THen create action:
+- You will be creating a new action from the code provided in `https://github.com/aslom/serverless-nyc-bai-case-study/blob/master/analytics/task_summary.py` Clone the repo, and cd into the folder containing this file:
+  `git clone git@github.com:aslom/serverless-nyc-bai-case-study.git && cd serverless-nyc-bai-case-study/analytics`
+  
+    - if you are unable to clone, you could create a file named task_summary.py & paste in the contents from the [file on github](https://raw.githubusercontent.com/aslom/serverless-nyc-bai-case-study/master/analytics/task_summary.py).
 
-```
-ibmcloud fn action create task_summary task_summary.py --param analytics-id $YOUR_ID --param ES_URL https://admin:QZSFKVNUNTMWPHMY@portal-ssl65-41.bmix-dal-yp-c401ad96-667e-4128-af0e-cb3d54fd1cf9.250607799.composedb.com:62863/ --docker aslom/python3action-bai
-```
+- VERY IMPORTANT: to avoid overriding each other's state in Elasticsearch set your own unique analytics ID:
+  ```
+  YOUR_ID=mynamehere
+  ```
+- Create the serverless action using the code at task_summary.py. You could look at the code, but at a high level, this action calculates the duration of a particular case management task.
+  ```
+  ibmcloud fn action create task_summary task_summary.py --param analytics-id $YOUR_ID --param ES_URL https://admin:QZSFKVNUNTMWPHMY@portal-ssl65-41.bmix-dal-yp-c401ad96-667e-4128-af0e-cb3d54fd1cf9.250607799.composedb.com:62863/ --docker aslom/python3action-bai
+  ```
 
-expected output
+  expected output
 
-```
-ok: created action task_summary
-```
+  ```
+  ok: created action task_summary
+  ```
 
-After editing of python code use update:
+- You will not edit the code for this lab, but if you wanted to make edits in the future, you would use the `update` command instead of `create`.
 
-```
-ibmcloud fn action update task_summary task_summary.py --param analytics-id $YOUR_ID --param ES_URL https://admin:QZSFKVNUNTMWPHMY@portal-ssl65-41.bmix-dal-yp-c401ad96-667e-4128-af0e-cb3d54fd1cf9.250607799.composedb.com:62863/ --docker aslom/python3action-bai
-```
+  ```
+  ibmcloud fn action update task_summary task_summary.py --param analytics-id $YOUR_ID --param ES_URL https://admin:QZSFKVNUNTMWPHMY@portal-ssl65-41.bmix-dal-yp-c401ad96-667e-4128-af0e-cb3d54fd1cf9.250607799.composedb.com:62863/ --docker aslom/python3action-bai
+  ```
 
 
-## Create rule to connect trigger to action
+## Create a rule to connect the trigger to the action
 
-```
-ibmcloud fn rule create taskSummaryRule baiEventStreamTestTrigger task_summary
-```
+- The trigger you created needs to be connected to the action you created via a rule, so that the action will be run whenever a new item is on the kafka topic:
 
-expected output
+  ```
+  ibmcloud fn rule create taskSummaryRule baiEventStreamTestTrigger task_summary
+  ```
 
-```
-ok: created rule taskSummaryRule
-```
+  expected output
+
+  ```
+  ok: created rule taskSummaryRule
+  ```
 
 
 ## Check output
 
-Your trigger should triggered and your action invoked when events are received.
+- The instructors will be sending messages to the kafka topic periodically. Your trigger should be fired and your action invoked when events are received.
 
-```
-ibmcloud fn activation poll
-```
+  ```
+  ibmcloud fn activation poll
+  ```
 
 # Optional (if time allows)
 
