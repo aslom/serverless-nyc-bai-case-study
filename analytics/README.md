@@ -1,7 +1,7 @@
 # How to build and run BAI analytics action
 
 
-## Building and testng action code locally
+## Building and testing action code locally
 
 Mae sure python3 is installed: https://realpython.com/installing-python/
 
@@ -53,11 +53,18 @@ ok: created action task_summary
 ## Create rule to connect trigger to action
 
 ```
-ibmcloud fn rule create kafkaActionRule baiEventStreamTestTrigger kafkaAction
+ibmcloud fn rule create taskSummaryRule baiEventStreamTestTrigger task_summary
 ```
 
 expected output
 
 ```
-ok: created rule kafkaActionRule
+ok: created rule taskSummaryRule
+```
+
+
+## Check output
+
+```
+ibmcloud fn activation poll
 ```
