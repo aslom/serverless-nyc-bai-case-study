@@ -40,7 +40,7 @@
 
 - VERY IMPORTANT: to avoid overriding each other's state in Elasticsearch set your own unique analytics ID:
   ```
-  export YOUR_ID=mynamehere
+  YOUR_ID=mynamehere
   ```
 - Create the serverless action using the code at task_summary.py. You could look at the code, but at a high level, this action calculates the duration of a particular case management task. You will notice that the action being created is a docker action - this is so that we can include our required libraries.
   ```
