@@ -1,0 +1,36 @@
+---
+## Default Kibana configuration from kibana-docker.
+## from https://github.com/elastic/kibana-docker/blob/master/build/kibana/config/kibana.yml
+#
+#server.name: kibana
+#server.host: "0"
+#server.name: kibana
+server.host: "0"
+
+
+#elasticsearch.url: http://elasticsearch:9200
+#elasticsearch.url: https://admin:IDGYVALTPVDZZVCZ@portal-ssl113-38.bmix-dal-yp-cc659f75-4d33-404d-8934-644c6858f0ca.250607799.composedb.com:58570/
+elasticsearch.url: https://admin:QZSFKVNUNTMWPHMY@portal-ssl65-41.bmix-dal-yp-c401ad96-667e-4128-af0e-cb3d54fd1cf9.250607799.composedb.com:62863/
+elasticsearch.username: admin
+elasticsearch.password: QZSFKVNUNTMWPHMY
+# QZSFKVNUNTMWPHMY
+#elasticsearch.ssl.verificationMode: none
+#elasticsearch.requestHeadersWhitelist: [ ]
+
+
+# elasticsearch.customHeaders: { Authorization: Basic 'base64encoded un:pw' }
+# https://github.com/elastic/kibana/issues/11557
+# WRONG (includes \n confuses server wrogn password)base64 <<< admin:QZSFKVNUNTMWPHMY
+# GOOD: echo -n admin:QZSFKVNUNTMWPHMY | base64
+elasticsearch.customHeaders: { Authorization: 'Basic YWRtaW46UVpTRktWTlVOVE1XUEhNWQ==' }
+
+## Disable X-Pack
+## see https://www.elastic.co/guide/en/x-pack/current/xpack-settings.html
+##     https://www.elastic.co/guide/en/x-pack/current/installing-xpack.html#xpack-enabling
+#
+# xpack.security.enabled: false
+# xpack.monitoring.enabled: false
+# xpack.ml.enabled: false
+# xpack.graph.enabled: false
+# xpack.reporting.enabled: false
+# xpack.grokdebugger.enabled: false
